@@ -21,14 +21,14 @@ const afterRelu = computed(() => clicks.value > 0)
       <b>→</b>
       <div class="kernel-card gradient-card"><strong>Horizontal gradient</strong><div class="mini-matrix"><span>−1</span><span>0</span><span>1</span><span>−2</span><span>0</span><span>2</span><span>−1</span><span>0</span><span>1</span></div><small>Sobel filter</small></div>
       <b>→</b>
-      <div class="example"><img :src="afterRelu ? '/images/representation/duck-vertical-edges-relu.png' : '/images/representation/duck-vertical-edges.png'" :alt="afterRelu ? 'Horizontal Sobel feature map after ReLU' : 'Signed horizontal Sobel feature map before ReLU'"></div>
+      <div class="example"><img v-if="afterRelu" src="/images/representation/duck-vertical-edges-relu.png" alt="Horizontal Sobel feature map after ReLU"><img v-else src="/images/representation/duck-vertical-edges.png" alt="Signed horizontal Sobel feature map before ReLU"></div>
     </div>
     <div class="filter-row rgb-row">
       <div class="example"><img src="/images/representation/duck-alternate.jpg" alt="RGB duck photograph"></div>
       <b>→</b>
       <div class="kernel-card"><strong>Yellow opponent</strong><div class="rgb-kernel"><div class="slice red-slice"><span>½</span><span>1</span><span>½</span><span>1</span><span>2</span><span>1</span><span>½</span><span>1</span><span>½</span></div><div class="slice green-slice"><span>½</span><span>1</span><span>½</span><span>1</span><span>2</span><span>1</span><span>½</span><span>1</span><span>½</span></div><div class="slice blue-slice"><span>−1</span><span>−2</span><span>−1</span><span>−2</span><span>−4</span><span>−2</span><span>−1</span><span>−2</span><span>−1</span></div></div><small>R · G · B slices</small></div>
       <b>→</b>
-      <div class="example"><img :src="afterRelu ? '/images/representation/duck-yellow-kernel-response-relu.png' : '/images/representation/duck-yellow-kernel-response.png'" :alt="afterRelu ? 'Yellow-opponent feature map after ReLU' : 'Signed yellow-opponent feature map before ReLU'"></div>
+      <div class="example"><img v-if="afterRelu" src="/images/representation/duck-yellow-kernel-response-relu.png" alt="Yellow-opponent feature map after ReLU"><img v-else src="/images/representation/duck-yellow-kernel-response.png" alt="Signed yellow-opponent feature map before ReLU"></div>
     </div>
           <div class="step-control"><span :class="{ active: !afterRelu }">1 · output of convolution</span><span :class="{ active: afterRelu }">2 · after ReLU</span></div>
         </figure>
